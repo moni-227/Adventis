@@ -1,0 +1,229 @@
+/* .content{
+  background-color: #94DCAA;
+} */
+.header{
+  /* z-index: 3; */
+    background-color: #EDDAE3;
+    background-color: #94DCAA;
+    /* height:80px; */
+    /* position:relative; */
+    /* position: sticky; */
+    
+    z-index: 1;
+}
+.logoimg{
+    /* margin-top: 0px; */
+    width:140px;
+    height:60px;
+
+}
+/* .userimg{
+  width:100%;
+  height:50%;
+} */
+.logo6{
+    /* background-color: rgb(255, 140, 0); */
+    text-align: center;
+    /* display: flex;
+    justify-content: center;
+    align-items: center;  */
+}
+.custom-width{
+    width: 70px;
+    /* background-color:#229FDD; */
+    transition-duration: 0.4s;
+   
+}
+.samplebutton{
+    margin: auto 0px;
+}
+/* .logo1{
+    background-color: rgb(98, 255, 0);
+}.logo2{
+    background-color: rgb(255, 230, 0);
+}.logo3{
+    background-color: rgb(0, 255, 255);
+}.logo4{
+    background-color: rgb(255, 0, 225);
+}.logo5{
+    background-color: rgb(255, 0, 72);
+}.logo6{
+    background-color: rgb(0, 255, 98);
+} */
+/* Add some styling to the dropdown menu */
+.dropdown-menu {
+    display: block;
+    position: absolute;
+    top: 30px;
+    left: 0;
+    /* background-color: rgb(44, 233, 14); */
+    border: 1px solid #0de242;
+    /* margin-left: 30%; */
+    margin-top: 20%;
+  }
+  
+  .dropdown-menu button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    background-color: #83C8E4;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .dropdown-menu button:hover {
+    background-color: #F5730A;
+  }
+  .carousel1{
+    margin-top: 5px;
+
+    /* background-color: #0de242; */
+    /* margin-bottom:15px; */
+    /* height: 300px; */
+    /* margin-bottom: -60px; */
+    /* z-index: -2; */
+    /* margin-bottom: 10px; */
+  }
+  .content{
+    background-color: #FFFFFF;
+  
+    /* background-image: url(https://media.istockphoto.com/id/582256640/photo/oil-refinery-chemical-petrochemical-plant.jpg?s=612x612&w=0&k=20&c=BEdsHVe2vUfzRTb9KcsCS_tCH6_R_nKLKkOQCht8AKo=);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;  */
+   
+  }
+  /* .videocolumn{
+    height: 80%;
+  } */
+  /* .carousel2{
+    height:100px;
+    
+  } */
+  @media (max-width: 768px) {
+    #carouselExampleIndicators, #carouselExampleIndicators2 {
+      max-width: 100%;
+    }
+    /* .content1 {
+      margin-bottom: -10%;
+    } */
+  }
+  
+
+  .video-container {
+    position: relative;
+    /* position: fixed; */
+    /* margin-bottom: -10%; */
+    /* height: 70%; */
+    width:100%;
+  }
+  
+  #myVideo {
+    /* position: fixed; */
+    right: 0;
+    bottom: 10px;
+    min-width: 100%;
+    min-height: 100%;
+  }
+  
+  /* .content1 {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+  } */
+
+  /* .content1 {
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    padding: 20px; 
+    box-sizing: border-box;
+
+  } */
+  /* .content1 {
+    position: fixed;
+    bottom: 0;
+    left: -1;
+    right: 1;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    padding: 20px; 
+    box-sizing: border-box;
+    z-index: 1000; 
+  } */
+  
+   .content1 {
+    bottom: 0;
+    left: -1;
+    right: 1;
+    width: 100%;
+
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    padding: 20px; 
+    box-sizing: border-box;
+    z-index: 1000; 
+  } 
+  .content1 {
+    /* position: fixed; */
+    /* bottom: 0; */
+    /* left: 0; */
+position:sticky;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    padding: 20px; /* Adjust the padding as needed */
+    box-sizing: border-box;
+    z-index: 1000; /* Adjust the z-index to be higher than other elements */
+  }
+  
+  
+  /* #myBtn {
+    width: 200px;
+    font-size: 18px;
+    padding: 10px;
+    border: none;
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+  } */
+  
+  /* #myBtn:hover {
+    background: #ddd;
+    color: black;
+  }
+  
+  .paused #myVideo {
+    pointer-events: none;
+  }
+   */
+   .logo7 img {
+    border-radius: 50%;
+    width: 50px; /* Adjust the width as needed */
+    height: 50px; /* Adjust the height as needed */
+    object-fit: cover;
+    background-color: white;
+    margin: auto;
+    cursor: pointer;
+  }
+  /* .logo5{
+    background-color: #F5730A;
+  } */
+  .center-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .logo7{
+    margin-top: 3%;
+  }

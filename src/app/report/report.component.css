@@ -1,0 +1,113 @@
+.list{
+    margin-top: 0.0%;
+    float: right;
+    width:50;
+    height:50px;
+}
+th, td {
+    border: 1px solid #ddd; /* Add a border to cells */
+    padding: 8px; /* Add some padding to cells */
+    text-align: left; /* Align text to the left */
+  }
+
+  th {
+    background-color: #f2f2f2; /* Add a background color to header cells */
+  }
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  .header1{
+    margin-top: -0.5%;
+    background-color:whitesmoke;
+    }
+    .header1{
+        background-color: #EDDAE3;
+        background-color: #94DCAA;
+        z-index: 1;
+    }
+    .custom-width{
+        width: 70px;
+        transition-duration: 0.4s;
+      }
+      .logoimg{
+        margin-top: 0px;
+        width:250%;
+        height:100%;
+      }
+      .logoimg1{
+        width:170px;
+        height:50px;
+      }
+      .custom-width{
+        width: 70px;
+        transition-duration: 0.4s;
+      }
+      .dropdown-menu {
+        display: block;
+        position: absolute;
+        top: 30px;
+        left: 0;
+        border: 1px solid #0de242;
+        margin-top: 20%;
+      }
+      .dropdown-menu button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        text-align: center;
+        background-color: #83C8E4;
+        border: none;
+        cursor: pointer;
+      }
+      .dropdown-menu button:hover {
+        background-color: #F5730A;
+      }
+      .logoimg1{
+        /* margin-top: 0px; */
+        width:140px;
+        height:60px;
+    
+    }
+    .dropdown-menu button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        text-align: center;
+        background-color: #83C8E4;
+        border: none;
+        cursor: pointer;
+      }
+      
+      .dropdown-menu button:hover {
+        background-color: #F5730A;
+      }
+      .samplebutton{
+        margin: auto 0px;
+      }
+      .logo7{
+        margin-top: 3%;
+      }
+      .logo7 img {
+        border-radius: 50%;
+        width: 50px; 
+        height: 50px; 
+        object-fit: cover;
+        background-color: white;
+        margin: auto;
+        cursor: pointer;
+      }    .logoimg1{
+        /* margin-top: 0px; */
+        width:140px;
+        height:60px;
+    
+    }
+    .logoimg1{
+      width:170px;
+      height:50px;
+    }
+  .custom-width{
+    width: 70px;
+    transition-duration: 0.4s;
+  }

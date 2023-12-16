@@ -25,9 +25,15 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "node_modules/pdfmake/build/pdfmake.min.js",
+              "node_modules/pdfmake/build/vfs_fonts.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -87,12 +93,21 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "node_modules/pdfmake/build/pdfmake.min.js",
+              "node_modules/pdfmake/build/vfs_fonts.js"
+            ]
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "ca0c02e3-89ca-4e3f-99db-8c0b1ac5115f"
   }
 }

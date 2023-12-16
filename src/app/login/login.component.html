@@ -1,0 +1,110 @@
+<div class="container-fluid">
+    <div class="row header">
+      <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 ">
+        <section class="h-100 gradient-form" style="background-color:white;">
+            <div class="container py-5 h-100" >
+              <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-xl-10">
+                  <div class="card rounded-3 text-black" style="background-color: rgb(255, 253, 252);" >
+                    <div class="row g-0">
+                      <div class="col-lg-6" >
+                        <div class="card-body p-md-5 mx-md-4">
+          
+                          <div class="text-center">
+                            <!-- <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp" -->
+                            <img src="https://controlsoftengg.in/images/logo.png"
+                              style="width: 185px;" alt="logo">
+                            <h4 class="mt-1 mb-5 pb-1">We are The Csoft Team</h4>
+                          </div>
+          
+                          <form [formGroup]="Login" (ngSubmit)="loginform();">
+                            <p>Please login to your account</p>
+          
+                            <div class="form-outline mb-4">
+                              <input type="email" id="form2Example11" class="form-control"
+                              formControlName="Emailaddress"   placeholder="Enter a valid email address"/>
+                              <label class="form-label" for="form2Example11">Email address</label>
+                            </div>
+          
+                            <!-- <div class="form-outline mb-4">
+                              <input type="password" id="form2Example22" class="form-control" formControlName="Password"   placeholder="Enter a valid Password"/>
+                              <label class="form-label" for="form2Example22">Password</label>
+                            </div> -->
+                            <div class="input-group mb-2">
+                              <input
+                                type="{{ showPassword ? 'text' : 'password' }}"
+                                id="form3Example4"
+                                class="form-control"
+                                formControlName="Password"
+                                placeholder="Enter a Password"
+                              />
+                              <div class="input-group-append">
+                                <button
+                                  class="btn btn-outline-primary"
+                                  type="button"
+                                  (click)="togglePasswordVisibility()"
+                                >
+                                  <!-- <i class="bi bi-eye{{ showPassword ? '-slash' : '' }}"></i> -->
+                                  <img class="img-fluid" [src]="image" alt="Button Image" style="height:25px;">
+                                </button>
+                              </div>
+                            </div>
+                            <label class="form-label" for="form3Example4" >Password</label>
+
+          
+                            <div class="text-center pt-1 mb-5 pb-1">
+                              <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"  type="submit"  [disabled]="!Login.valid">Log
+                                in</button>
+                              <!-- <a class="text-muted" href="#!" routerLink="/Forgotpassword">Forgot password?</a> -->
+                            </div>
+                            
+                            <div class="text-center text-lg-start mt-4 pt-2">
+
+                              <div
+                              *ngIf="!Login.valid && (Login.dirty || Login.touched)">
+                              <p class="alert">𝐸𝑛𝑡𝑒𝑟 𝑡ℎ𝑒 𝑣𝑎𝑙𝑖𝑑 𝐸𝑚𝑎𝑖𝑙 𝑎𝑛𝑑 𝑝𝑎𝑠𝑠𝑤𝑜𝑟𝑑</p>
+                               </div> 
+
+                            <!-- <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a routerLink="/form4"
+                                class="link-danger">Register</a></p> -->
+                          </div>
+          
+                            <!-- <div class="d-flex align-items-center justify-content-center pb-4">
+                              <p class="mb-0 me-2">Don't have an account?</p>
+                              <button type="button" class="btn btn-outline-danger" (click)="Registration()">Create new</button>
+                            </div> -->
+
+          
+                          </form>
+                          <div [hidden]="true">
+                            <pre>value:{{Login.value | json}}</pre>
+                            <pre>valid:{{Login.valid}}</pre>
+                            <pre>Touched:{{Login.touched}}</pre>
+                        </div>
+          
+                        </div>
+                      </div>
+                      <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+                        <!-- <div class="text-white px-3 py-4 p-md-5 mx-md-4"> -->
+                          <!-- <h4 class="mb-4">We are more than just a company</h4>
+                          <p class="small mb-0">It is the ambition and objective of Controlsoft 
+                            Engineering to become the India's most preferred, respected designer
+                             and implementer of intelligent automation systems and detailed engineering"</p> -->
+                             <img class="img-fluid logoimg" src="https://cstimesheetimg.s3.ap-south-1.amazonaws.com/Login.png" alt="Logo Image" >
+                        <!-- </div> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+      
+      </div>
+
+  
+    </div>
+  
+  </div>
+
+

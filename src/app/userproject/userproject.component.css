@@ -1,0 +1,180 @@
+.header{
+  margin-top: -0.5%;
+  background-color:whitesmoke;
+  }
+  .logoimg{
+    margin-top: 0px;
+    width:250%;
+    height:100%;
+  }
+  .custom-width{
+    width: 70px;
+    transition-duration: 0.4s;
+  }
+  .btn:hover {
+    background-color: orangered;
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(145, 44, 44, 0.24), 0 17px 50px 0 rgba(206, 13, 13, 0.19);
+  }
+  .samplebutton{
+    margin: auto 0px;
+  }
+  .custom-width1{
+    width: 70px;
+    height: 58px;
+  }
+  .logoimg1{
+    margin-top: 5%;
+    width: 20%;
+    height: 20%;
+  }
+  .uploder{
+    margin-top: 10%;
+    background-color: #DCE9F9;
+  }
+  .logoimg2{
+    width: 10%;
+    height: 10%;
+  }
+  .samplebutton1{
+    background-color:#C4D1E4;
+    width:60%;
+    height: 60%;
+    margin-bottom: 7%;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+  }
+  .samplebutton2{
+  margin-top: 15%;
+  margin-bottom: 15%;
+  }
+  .custom-button {
+            background-color: #002762; 
+            color: white; 
+            border-color: black;
+  }
+  .custom-lg-button {
+            padding: 15px 20px; 
+}
+#fileInput {
+    box-shadow: 0 12px 16px 0 rgba(237, 7, 7, 0.24), 0 17px 50px 0 rgba(234, 4, 4, 0.19);
+    transition: background-color 0.10s, color 0.10s, box-shadow 0.10s; 
+}
+  .dropdown {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ccc;
+    position: absolute;
+    max-height: 150px;
+    overflow-y: auto;
+    background-color: #fff;
+    z-index: 1;
+    border-radius: 4px;
+  }
+    .dropdown li {
+    padding: 5px;
+    cursor: pointer;
+    background-color: #1976D2;
+  }
+    .dropdown li:hover {
+    background-color: #f0f0f0;
+  }
+    .form-control.custom-dropdown {
+    border-radius: 0;
+  }
+  .btn{
+    width:100px
+  }
+.custom-timepicker .ngx-timepicker-field-container {
+  border: none;
+  border-color: #002762;
+}
+mat-form-field {
+  margin-right: 12px;
+}
+.content{
+  margin-top: 10px;
+}
+.tec{
+  margin-top: 2%;
+}
+.custom-timepicker .placeholder {
+  background-color: transparent;
+  color:rgb(225, 222, 222)
+}
+.col.tec .placeholder {
+  background-color: transparent;
+  color:black
+}
+.input .placeholder{
+  color:rgb(225, 12, 12)
+}
+#groupInput::placeholder {
+  color:rgba(53, 50, 50, 0.274)
+}
+#modelInput::placeholder {
+  color:rgba(53, 50, 50, 0.274)
+}
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+th {
+  background-color: #f2f2f2;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+.tablerow{
+  margin-bottom: 3%;
+}
+.header{
+    background-color: #EDDAE3;
+    background-color: #94DCAA;
+    z-index: 1;
+} 
+.logoimg{
+  width:170px;
+  height:50px;
+}
+.custom-width{
+  width: 70px;
+  transition-duration: 0.4s;
+}
+.logo7{
+  margin-top: 3%;
+}
+.logo7 img {
+  border-radius: 50%;
+  width: 50px; 
+  height: 50px; 
+  object-fit: cover;
+  background-color: white;
+  margin: auto;
+  cursor: pointer;
+}
+.dropdown-menu {
+  display: block;
+  position: absolute;
+  top: 30px;
+  left: 0;
+  border: 1px solid #0de242;
+  margin-top: 20%;
+}
+.dropdown-menu button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  background-color: #83C8E4;
+  border: none;
+  cursor: pointer;
+}
+.dropdown-menu button:hover {
+  background-color: #F5730A;
+}

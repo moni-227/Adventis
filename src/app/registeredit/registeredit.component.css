@@ -1,0 +1,14 @@
+th, td {
+    border: 1px solid #ddd; /* Add a border to cells */
+    padding: 8px; /* Add some padding to cells */
+    text-align: left; /* Align text to the left */
+  }
+
+  th {
+    background-color: #f2f2f2; /* Add a background color to header cells */
+  }
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }

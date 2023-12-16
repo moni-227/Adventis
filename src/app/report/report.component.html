@@ -1,0 +1,265 @@
+
+   <!-- <div class="container-fluid" *ngIf="alldata && alldata.length > 0 else noDataTemplate">
+ 
+    <form (ngSubmit)="filterData" class="mt-3">
+      <div class="row">
+        <div class="col-md-2">
+          <input type="text" [(ngModel)]="selectedUsername" name="username" class="form-control" placeholder="Username">
+        </div>
+        <div class="col-md-2">
+          <input type="text" [(ngModel)]="selectedProject" name="userproject" class="form-control" placeholder="Userproject">
+        </div>
+        <div class="col-md-2">
+          <input type="date" [(ngModel)]="dateFrom" name="fromDate" class="form-control" placeholder="From Date">
+        </div>
+        <div class="col-md-2">
+          <input type="date" [(ngModel)]="dateTo" name="toDate" class="form-control" placeholder="To Date">
+        </div>
+
+        <div class="col-md-2">
+          <button (click)="exportToPDF()" class="btn btn-success">Export to PDF</button>
+        </div>
+        <div class="col-md-2">
+          <button (click)="exportToExcel()" class="btn btn-info">Export to Excel</button>
+        </div>
+
+      </div>
+    </form>
+    <div  class="row">
+      <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+        <mat-paginator [length]="filteredData.length" [pageSize]="pageSize" [pageSizeOptions]="[10, 25, 50,100,200,500,1000,10000]" (page)="onPageChange($event)"></mat-paginator>
+        <table   #tableData  class="table">
+  
+          <thead>
+            <tr>
+              <th scope="col">S.No</th>
+              <th scope="col">Name</th>
+              <th scope="col">Date</th>
+              <th scope="col">Project1</th>
+              <th scope="col">Projecttime1</th>
+              <th scope="col">Project2</th>
+              <th scope="col">Projecttime2</th>
+              <th scope="col">Project3</th>
+              <th scope="col">Projecttime3</th>
+              <th scope="col">Learning</th>
+              <th scope="col">Learningtime</th>
+              <th scope="col">Training</th>
+              <th scope="col">Trainingtime</th>
+              <th scope="col">TotalTime</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of pagedData; let i = index">
+              <th scope="row">{{ i + 1 }}</th>
+              <td>{{ item.Name }}</td>
+              <td>{{ item.Date }}</td>
+              <td>{{ item.Project1 }}</td>
+              <td>{{ item.Projecttime1 }}</td>
+              <td>{{ item.Project2 }}</td>
+              <td>{{ item.Projecttime2 }}</td>
+              <td>{{ item.Project3 }}</td>
+              <td>{{ item.Projecttime3 }}</td>
+              <td>{{ item.Learning }}</td>
+              <td>{{ item.Learningtime }}</td>
+              <td>{{ item.Training }}</td>
+              <td>{{ item.Trainingtime }}</td>
+              <td>{{ item.TotalTime }}</td>
+            </tr>
+          </tbody>
+        </table>
+       
+      </div>
+    </div>
+  </div>
+  <ng-template #noDataTemplate>
+    <div class="row header">
+      <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 ">
+        <section class="h-100 gradient-form" style="background-color:white;">
+            <div class="container py-5 h-100" >
+              <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-xl-7">
+                  <div class="card rounded-3 text-black" style="background-color: rgb(255, 253, 252);" >
+                    <div class="row g-0">
+
+                      <div class="col-lg-12 d-flex align-items-center gradient-custom-2">
+                             <img class="img-fluid logoimg" src="https://cstimesheetimg.s3.ap-south-1.amazonaws.com/Nodatafound.png" alt="Logo Image" >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+      
+      </div>
+
+  
+    </div>
+  </ng-template> -->
+  <div class="container-fluid" >
+  <div class="row header1">
+    <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-2 col-xl-2 col-xxl-2 ">
+      <div class="samplebutton d-flex align-items-center justify-content-center">
+      <button class="btn  custom-width"  (click)="home()" >
+        <img class="img-fluid logoimg1" src="https://cstimesheetimg.s3.ap-south-1.amazonaws.com/logo-removebg-preview.png" alt="Logo Image" >
+        </button>
+      </div>
+    </div>
+    <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-6 col-xxl-6 logo1">
+     
+
+    </div>
+
+    <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-1 col-xl-1 col-xxl-1 logo3" >
+      <div class="samplebutton d-flex align-items-center justify-content-center">
+    <button class="btn  custom-width"  (click)="register()" >
+      <img class="img-fluid" src="https://cstimesheetimg.s3.ap-south-1.amazonaws.com/Project.png" alt="Button Image">
+    </button>
+      </div>
+    <div>
+      <h6 class="h6 text-center text-wrap " style="margin-top: 0; margin-bottom: 0; margin-left: 20px;  font-size:15px; color:#080808; margin: auto 0px;">𝐑𝐞𝐠𝐢𝐬𝐭𝐞𝐫</h6>
+    </div>
+    </div>
+    <div class="col-12 col-xs-6 col-sm-6 col-md-6 col-lg-1 col-xl-1 col-xxl-1 logo4" >
+      <div class="samplebutton d-flex align-items-center justify-content-center">
+      <button class="btn  custom-width"  (click)="project()" >
+        <img class="img-fluid" src="https://cstimesheetimg.s3.ap-south-1.amazonaws.com/Project.png" alt="Button Image">
+      </button>
+    </div>
+    <div>
+      <h6 class="h6 text-center text-wrap " style="margin-top: 0; margin-bottom: 0; margin-left: 20px;  font-size:15px; color:#080808; margin: auto 0px;">𝐏𝐫𝐨𝐣𝐞𝐜𝐭𝐬</h6>
+    </div>
+    </div>
+    <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-2 col-xl-2 col-xxl-1 logo5">
+      <div class="logo7 d-flex align-items-center justify-content-center" (click)="toggleDropdown = !toggleDropdown" (blur)="toggleDropdown = false">
+
+
+        <img class="img-fluid rounded-circle center-img" [src]="imageUrl" alt="Profile Image">
+    
+        <div *ngIf="toggleDropdown" class="dropdown-menu" (click)="logout()">
+          <button>Logout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="alldata && alldata.length > 0 ; else noDataTemplate">
+    <div class="row"  >
+    <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+      <form (ngSubmit)="filterData" class="mt-3">
+        <div class="row">
+          <div class="col-md-2">
+            <input type="text" [(ngModel)]="selectedUsername" name="username" class="form-control" >
+          </div>
+          <div class="col-md-2">
+            <input type="text" [(ngModel)]="selectedProject" name="userproject" class="form-control" placeholder="Userproject1">
+          </div>
+          <div class="col-md-2">
+            <input type="date" [(ngModel)]="dateFrom" name="fromDate" class="form-control" placeholder="From Date">
+          </div>
+          <div class="col-md-2">
+            <input type="date" [(ngModel)]="dateTo" name="toDate" class="form-control" placeholder="To Date">
+          </div>
+          <!-- <div class="col-md-2">
+            <button type="submit" class="btn btn-primary">Apply Filter</button>
+          </div> -->
+          <div class="col-md-2">
+            <button (click)="exportToPDF()" class="btn btn-success">Export to PDF</button>
+          </div>
+          <div class="col-md-2">
+            <button (click)="exportToExcel()" class="btn btn-info">Export to Excel</button>
+          </div>
+        </div>
+      </form>
+      </div>
+    </div>
+      <div class="row" >
+        <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+          <mat-paginator [length]="filteredData.length" [pageSize]="pageSize" [pageSizeOptions]="[5,10, 25, 50,100,200,500,1000,10000]" (page)="onPageChange($event)"></mat-paginator>
+          <table   #tableData  class="table table-responsive">
+    
+            <thead>
+              <tr>
+                <th scope="col">S.No</th>
+                <th scope="col">Name</th>
+                <th scope="col">Date</th>
+                <!-- <th scope="col">Project1</th>
+                <th scope="col">Time</th>
+                <th scope="col">Project2</th>
+                <th scope="col">Time</th>
+                <th scope="col">Project3</th>
+                <th scope="col">Time</th>
+                <th scope="col">Project4</th>
+                <th scope="col">Time</th>
+                <th scope="col">Project5</th>
+                <th scope="col">Time</th>
+                <th scope="col">Learning & Learning</th>
+                <th scope="col">Time</th> -->
+  
+                <ng-container *ngFor="let column of tableColumns">
+                  <th *ngIf="hasData(column)" scope="col">{{ column }}</th>
+                  <th *ngIf="hasData(column)" scope="col">Time</th>
+                </ng-container>
+  
+                <th scope="col">TotalTime</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of pagedData; let i = index">
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{ item.Name }}</td>
+                <td>{{ item.TodayDate }}</td>
+  
+                <ng-container *ngFor="let column of tableColumns">
+                  <td *ngIf="hasData(column)">{{ item[column] }}</td>
+                  <td *ngIf="hasData(column)">{{ item['totaltime' + column.toLowerCase()] }}</td>
+                </ng-container>
+  
+                <!-- <td >{{ item.Project1 }}</td>
+                <td>{{ item.totaltimeproject1 }}</td>
+                <td>{{ item.Project2 }}</td>
+                <td>{{ item.totaltimeproject2 }}</td>
+                <td >{{ item.Project3 }}</td>
+                <td>{{ item.totaltimeproject3 }}</td>
+                <td>{{ item.Project4 }}</td>
+                <td>{{ item.totaltimeproject4 }}</td>
+                <td>{{ item.Project5 }}</td>
+                <td>{{ item.totaltimeproject5 }}</td>
+                <td>{{ item.TrainingLearing }}</td>
+                <td>{{ item.totalTrainingLearning }}</td> -->
+                <td>{{ item.totaytotaltime }}</td>
+  
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #noDataTemplate>
+    <div class="row header">
+      <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 ">
+        <section class="h-100 gradient-form" style="background-color:white;">
+            <div class="container py-5 h-100" >
+              <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-xl-7">
+                  <div class="card rounded-3 text-black" style="background-color: rgb(255, 253, 252);" >
+                    <div class="row g-0">
+  
+                      <div class="col-lg-12 d-flex align-items-center gradient-custom-2">
+                             <img class="img-fluid logoimg" src="https://cstimesheetimg.s3.ap-south-1.amazonaws.com/Nodatafound.png" alt="Logo Image" >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+      
+      </div>
+  
+  
+    </div>
+  </ng-template>
+  

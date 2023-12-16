@@ -1,0 +1,148 @@
+<div class="container-fluid">
+  <div class="row header">
+    <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 ">
+<!-- Section: Design Block -->
+<section class="">
+  <!-- Jumbotron -->
+  <div class="px-4 py-5 px-md-5 text-center text-lg-start" style="background-color: hsl(0, 0%, 96%)">
+    <div class="container">
+      <div class="row gx-lg-5 align-items-center">
+        <div class="col-lg-6 mb-5 mb-lg-0">
+          <!-- <h1 class="my-5 display-3 fw-bold ls-tight">
+            The best offer <br />
+            <span class="text-primary">for your business</span>
+          </h1>
+          <p style="color: hsl(217, 10%, 50.8%)">
+            Controlsoft Engineering India Private Limited provides automation and 
+            engineering solutions to the Indian and Overseas customers, 
+            using the state of the art software tools to design and detail engineer 
+            any instrumentation project, right from the concept to commissioning. 
+            The software tools will bring in speed, consistency, accuracy and quality to the international standards. 
+            Our aim is to provide all these solutions in less than half the current lead time.
+
+
+          </p> -->
+          <img class="img-fluid logoimg" src="https://cstimesheetimg.s3.ap-south-1.amazonaws.com/Regeditin.png" alt="Logo Image" >
+
+        </div>
+
+        <div class="col-lg-6 mb-5 mb-lg-0">
+          <div class="card">
+            <div class="card-body py-5 px-md-5">
+              <!-- <form  (ngSubmit)="registerform();"> -->
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <input type="text" id="form3Example1" class="form-control" [(ngModel)]="EmployeeId"    placeholder="Enter a Employee Id"  />
+                      <label class="form-label" for="form3Example1">Employee Id</label>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <input type="text" id="form3Example1" class="form-control"  [(ngModel)]="Name"  placeholder="Enter a Name"  />
+                      <label class="form-label" for="form3Example1">Name</label>
+                    </div>
+                  </div>
+
+                </div>
+
+                  <div class="form-outline mb-4">
+                    <input type="number" id="form3Example3" class="form-control"    [(ngModel)]="Salary"  placeholder="Enter a salary"/>
+                    <label class="form-label" for="form3Example3">Salary</label>
+                  </div>
+
+                <div class="form-outline mb-4">
+                  <input type="email" id="form3Example3" class="form-control"    [(ngModel)]="Emailaddress"   placeholder="Enter a  Email address"/>
+                  <label class="form-label" for="form3Example3">Email address</label>
+                </div>
+
+<div class="input-group mb-2">
+<input
+  type="{{ showPassword ? 'text' : 'password' }}"
+  id="form3Example4"
+  class="form-control"
+  [(ngModel)]="Password"
+  placeholder="Enter a Password"
+/>
+<div class="input-group-append">
+  <button
+    class="btn btn-outline-primary"
+    type="button"
+    (click)="togglePasswordVisibility()"
+  >
+    <!-- <i class="bi bi-eye{{ showPassword ? '-slash' : '' }}"></i> -->
+    <img class="img-fluid" [src]="image" alt="Button Image" style="height:25px;">
+  </button>
+</div>
+</div>
+<label class="form-label" for="form3Example4" >Password</label>
+<div class="form-outline mb-4">
+  <input type="file" id="form3Example5" class="form-control" (change)="onFileChange($event)" />
+  <label class="form-label" for="form3Example5">Profile Picture</label>
+</div>
+
+
+
+                <button type="submit" class="btn btn-primary btn-block mb-4" *ngIf="!isEditMode" (click)="registerform();">
+                  Save
+                </button>
+                <button type="submit" class="btn btn-primary btn-block mb-4" *ngIf="isEditMode" (click)="registerform1();">
+                  Update
+                </button>
+
+                <!-- <a class="text-muted" href="#!" routerLink="/Forgotpassword">Forgot password?</a> -->
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+    </div>
+  </div>
+    <div  class="row" >
+      <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-12 col-xxl-12">
+        <div class="table-responsive">
+        <table #tableData class="table">
+      <thead>
+        <tr>
+          <th scope="col">EmployeeId</th>
+          <th scope="col">Name</th>
+          <th scope="col">Salary</th>
+          <th scope="col">Emailaddress</th>
+          <th scope="col">Password</th>
+          <th scope="col">profilePicture</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let raja of response; let i = index ">
+          <td>{{raja.EmployeeId}}</td>
+          <td>{{raja.Name}}</td>
+          <td>{{raja.Salary}}</td>
+          <td>{{raja.Emailaddress}}</td>
+          <td>{{raja.Password}}</td>
+          <td>{{raja.profilePicture}}</td>
+
+
+          <td>
+             <button type="button" class="btn btn-success" (click)="editRow(raja)">Edit</button>
+          </td>
+          <td>
+          <button type="button" class="btn btn-danger" (click)="deleteRow(raja)">Delete</button>
+         </td>
+        </tr>
+      </tbody>
+        </table>
+        </div>
+      </div>
+  </div>
+  </div>
+

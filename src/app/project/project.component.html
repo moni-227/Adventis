@@ -1,0 +1,241 @@
+<div class="container-fluid">
+  <div class="row header1">
+    <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-2 col-xl-2 col-xxl-2 ">
+      <div class="samplebutton d-flex align-items-center justify-content-center">
+      <button class="btn  custom-width"  (click)="home()" >
+        <img class="img-fluid logoimg1" src="https://cstimesheetimg.s3.ap-south-1.amazonaws.com/logo-removebg-preview.png" alt="Logo Image" >
+        </button>
+      </div>
+    </div>
+    <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-6 col-xxl-6 logo1">
+     
+
+    </div>
+
+    <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-1 col-xl-1 col-xxl-1 logo3" >
+      <div class="samplebutton d-flex align-items-center justify-content-center">
+      <button class="btn  custom-width"  (click)="register()" >
+        <img class="img-fluid" src="https://cstimesheetimg.s3.ap-south-1.amazonaws.com/Project.png" alt="Button Image">
+      </button>
+   </div>
+      <div>
+        <h6 class="h6 text-center text-wrap " style="margin-top: 0; margin-bottom: 0; margin-left: 20px;  font-size:15px; color:#080808; margin: auto 0px;">𝐑𝐞𝐠𝐢𝐬𝐭𝐞𝐫</h6>
+      </div>
+
+    </div>
+    <div class="col-12 col-xs-6 col-sm-6 col-md-6 col-lg-1 col-xl-1 col-xxl-1 logo4" >
+      <div class="samplebutton d-flex align-items-center justify-content-center">
+        <button class="btn  custom-width" (click)="report()" >
+          <img class="img-fluid" src="https://cstimesheetimg.s3.ap-south-1.amazonaws.com/Report.png" alt="Button Image">
+        </button>
+      </div> 
+      <div>
+        <h6 class="h6 text-center text-wrap " style="margin-top: 0; margin-bottom: 0; margin-left: 20px;  font-size:15px; color:#080808; margin: auto 0px;">𝐑𝐞𝐩𝐨𝐫𝐭𝐬</h6>
+      </div>
+    </div>
+    <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-2 col-xl-2 col-xxl-1 logo5">
+      <div class="logo7 d-flex align-items-center justify-content-center" (click)="toggleDropdown = !toggleDropdown" (blur)="toggleDropdown = false">
+
+
+        <img class="img-fluid rounded-circle center-img" [src]="imageUrl" alt="Profile Image">
+    
+        <div *ngIf="toggleDropdown" class="dropdown-menu" (click)="logout()">
+          <button>Logout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class=" justify-content-center" style="margin: auto 10%; margin-top: 20px;">
+    <div class="col-12 col-md-12 col-lg-8 col-xl-12 col-xxl-12  ">
+      <p><b>Projects</b></p>
+      <div class="row">
+        <div class="col" >
+          <label for="groupInput">Project Id</label>
+          <input
+            id="groupInput"
+            class="form-control my-input"
+            [(ngModel)]="ProjectId"
+            [ngModelOptions]="{ standalone: true }"
+            (input)="filterDepartment1($event)"
+          />
+          <ul class="dropdown" *ngIf="filteredProject1.length > 0">
+            <li *ngFor="let groupOption of filteredProject1" (click)="selectDepartment1(groupOption)">{{ groupOption }}</li>
+          </ul>
+
+        </div>
+
+        <div class="col" >
+          <label for="groupInput">Title</label>
+          <input
+            id="groupInput"
+            class="form-control my-input"
+            [(ngModel)]="Title"
+          />
+        </div> 
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="groupInput">Client</label>
+          <input
+            id="groupInput"
+            [(ngModel)]="Client"
+            class="form-control my-input"
+          />
+        </div>
+        <div class="col">
+          <label for="groupInput">Project Value</label>
+          <input
+          type="number"
+            id="groupInput"
+            [(ngModel)]="ProjectValue"
+            class="form-control my-input"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="modelInput">Resource Budget</label>
+          <input
+            type="number"
+            id="modelInput"
+            [(ngModel)]="ResourceBudjet"
+            class="form-control my-input"
+          />
+
+        </div>
+        <div class="col">
+          <label for="modelInput">Project Duration From</label>
+          <input
+          type="date"
+            id="modelInput"
+            [(ngModel)]="ProjectDurationFrom"
+            class="form-control my-input"
+            [ngModelOptions]="{ standalone: true }"
+            (input)="filterDepartment2($event)"
+          />
+          <ul class="dropdown" *ngIf="filteredProject2.length > 0">
+            <li *ngFor="let groupOption of filteredProject2" (click)="selectDepartment2(groupOption)">{{ groupOption }}</li>
+          </ul>
+        <!-- <div class="col">
+          <label for="groupInput">Project - 1</label>
+          <input
+            id="groupInput"
+            [(ngModel)]="Project1"
+            [ngModelOptions]="{ standalone: true }"
+            class="form-control my-input "
+            (input)="filterDepartment1($event)"
+          />
+
+          <ul class="dropdown" *ngIf="filteredProject1.length > 0">
+            <li *ngFor="let groupOption of filteredProject1" (click)="selectDepartment1(groupOption)">{{ groupOption }}</li>
+          </ul>
+
+        </div> -->
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="modelInput">Project Duration To</label>
+          <input
+          type="date"
+            id="modelInput"
+            [(ngModel)]="ProjectDurationTo"
+            class="form-control my-input"
+          />
+
+        </div>
+        <div class="col">
+          <label for="modelInput">Description</label>
+          <input
+            id="modelInput"
+            [(ngModel)]="Description"
+            class="form-control my-input"
+          />
+
+        </div>
+        <!-- <div class="col">
+          <label for="modelInput">Description</label>
+          <input
+            id="modelInput"
+            [(ngModel)]="Description"
+            class="form-control my-input"
+          />
+
+        </div> -->
+
+        <!-- <div class="col">
+          <br>
+          <button type="submit" class="btn btn-primary" (click)="submit()">Submit</button>
+        </div> -->
+      </div>
+      <div class="row">
+        <div class="col">
+          <br>
+          <button type="submit" *ngIf="!isEditMode" class="btn btn-primary" (click)="submit()">Submit</button>
+          <button type="submit" *ngIf="isEditMode" class="btn btn-primary" (click)="submit1()">Save</button>
+          <!-- <button type="submit" class="btn btn-primary" (click)="onButtonClick()">
+            {{ isSubmitClicked ? 'Edit' : 'Submit' }}
+          </button> -->
+            <!-- <br>
+            <br>
+          <button type="submit" class="btn btn-primary" (click)="edit()">
+           edit
+          </button> -->
+          
+        </div>
+      </div>
+    </div>
+    </div>
+    <div  class="row"*ngIf="response && response.length > 0">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-12 col-xxl-12">
+        <div class="table-responsive">
+        <table #tableData class="table table-responsive">
+      <thead>
+        <!-- <tr>
+          <th scope="col">ProjectId</th>
+          <th scope="col">Title</th>
+          <th scope="col">Client</th>
+          <th scope="col">ProjectValue</th>
+          <th scope="col">ResourceBudjet</th>
+          <th scope="col">ProjectDurationFrom</th>
+          <th scope="col">ProjectDurationTo</th>
+          <th scope="col" *ngIf="hasDescriptionData()">Description</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+  
+  
+        </tr> -->
+
+        <tr>
+          <th *ngFor="let column of getTableColumns()" scope="col">{{ column }}</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let raja of response; let i = index ">
+          <!-- <td>{{raja.ProjectId}}</td>
+          <td>{{raja.Title}}</td>
+          <td>{{raja.Client}}</td>
+          <td>{{raja.ProjectValue}}</td>
+          <td>{{raja.ResourceBudjet}}</td>
+          <td>{{raja.ProjectDurationFrom}}</td>
+          <td>{{raja.ProjectDurationTo}}</td>
+          <td>{{raja.Description}}</td> -->
+  
+          <ng-container *ngFor="let column of getTableColumns()">
+            <td>{{ raja[column] }}</td>
+          </ng-container>
+          <td>
+             <button type="button" class="btn btn-success" (click)="editRow(raja)">Edit</button>
+          </td>
+          <td>
+          <button type="button" class="btn btn-danger" (click)="deleteRow(raja)">Delete</button>
+         </td>
+        </tr>
+      </tbody>
+        </table>
+        </div>
+      </div>
+  </div>
+</div> 

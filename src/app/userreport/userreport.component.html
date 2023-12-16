@@ -1,0 +1,563 @@
+<!-- <div class="container-fluid">
+
+      <form (ngSubmit)="filterData" class="mt-3">
+        <div class="row">
+          <div class="col-md-2">
+            <input type="text" [(ngModel)]="selectedUsername" name="username" class="form-control" [placeholder]="placeholderText" [disabled]="isDisabled">
+          </div>
+          <div class="col-md-2">
+            <input type="date" [(ngModel)]="dateFrom" name="fromDate" class="form-control" placeholder="From Date">
+          </div>
+          <div class="col-md-2">
+            <input type="date" [(ngModel)]="dateTo" name="toDate" class="form-control" placeholder="To Date">
+          </div>
+          <div class="col-md-2">
+            <button type="submit" class="btn btn-primary">Apply Filter</button>
+
+          </div>
+          <div class="col-md-2">
+
+            <button (click)="exportToPDF()" class="btn btn-success">Export to PDF</button>
+
+          </div>
+          <div class="col-md-2">
+
+            <button (click)="exportToExcel()" class="btn btn-info">Export to Excel</button>
+          </div>
+  
+        </div>
+      </form>
+    <div class="row ">
+        <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 ">
+          <mat-paginator [length]="filteredData.length" [pageSize]="pageSize" [pageSizeOptions]="[5,10, 25, 50,100,200,500,1000,10000]" (page)="onPageChange($event)"></mat-paginator>
+            <table #tableData  class="table"  >
+
+                <thead>
+                  <tr>
+                    <th scope="col">S.No</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Project</th>
+                    <th scope="col">Projecttime</th>
+                    <th scope="col">Learning</th>
+                    <th scope="col">Learningtime</th>
+                    <th scope="col">Training</th>
+                    <th scope="col">Trainingtime</th>
+                    <th scope="col">TotalTime</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                  <tr *ngFor="let item of filteredData; let i = index">
+                    <th scope="row">{{ i + 1 }}</th>
+                    <td>{{ item.Name }}</td>
+                    <td>{{ item.Date }}</td>
+                    <td>{{ item.Project }}</td>
+                    <td>{{ item.Projecttime }}</td>
+                    <td>{{ item.Learning }}</td>
+                    <td>{{ item.Learningtime }}</td>
+                    <td>{{ item.Training }}</td>
+                    <td>{{ item.Trainingtime }}</td>
+                    <td>{{ item.TotalTime }}</td>
+
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+      </div>
+</div> 
+
+
+   -->
+
+
+   <!-- <div class="container-fluid">
+    <form (ngSubmit)="filterData()">
+        <input type="text" [(ngModel)]="selectedUsername" name="username" placeholder="Username">
+        <input type="date" [(ngModel)]="dateFrom" name="fromDate" placeholder="From Date">
+        <input type="date" [(ngModel)]="dateTo" name="toDate" placeholder="To Date">
+        
+        <button type="submit">Apply Filter</button>
+        <button (click)="exportToPDF()">Export to PDF</button>
+        <button (click)="exportToExcel()">Export to Excel</button>
+    </form>
+    <div class="row ">
+        <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 ">
+            <table class="table">
+
+                <thead>
+                  <tr>
+                    <th scope="col">S.No</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Project</th>
+                    <th scope="col">Projecttime</th>
+                    <th scope="col">Learning</th>
+                    <th scope="col">Learningtime</th>
+                    <th scope="col">Training</th>
+                    <th scope="col">Trainingtime</th>
+                    <th scope="col">TotalTime</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                  <tr *ngFor="let item of pagedData; let i = index">
+                    <th scope="row">{{ i + 1 }}</th>
+                    <td>{{ item.Name }}</td>
+                    <td>{{ item.Date }}</td>
+                    <td>{{ item.Project }}</td>
+                    <td>{{ item.Projecttime }}</td>
+                    <td>{{ item.Learning }}</td>
+                    <td>{{ item.Learningtime }}</td>
+                    <td>{{ item.Training }}</td>
+                    <td>{{ item.Trainingtime }}</td>
+                    <td>{{ item.TotalTime }}</td>
+
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+      </div>
+</div> -->
+
+<!-- <div class="container-fluid"  *ngIf="alldata && alldata.length > 0 ; else noDataTemplate"> -->
+  <!-- <div class="container-fluid"  *ngIf="alldata && alldata.length > 0 ; else noDataTemplate"> -->
+  <!-- <div class="row"> -->
+    <!-- <div class="row" *ngIf="!pagedData || pagedData.length === 0; else noDataTemplate">
+  <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12"> -->
+
+
+
+
+<!--     
+    <div class="container-fluid" *ngIf="alldata && alldata.length || (filteredData && filteredData.length) > 0; else noDataTemplate">
+      <div class="row" >
+    <form (ngSubmit)="filterData" class="mt-3">
+      <div class="row" *ngIf="filteredData && filteredData.length > 0; ">
+        <div class="col-md-2">
+          <input type="text" [(ngModel)]="selectedUsername" name="username" class="form-control" [placeholder]="placeholderText"  [disabled]="isDisabled">
+        </div>
+        <div class="col-md-2">
+          <input type="text" [(ngModel)]="selectedProject1" name="userproject" class="form-control" placeholder="Userproject1">
+        </div>
+        <div class="col-md-2">
+          <input type="date" [(ngModel)]="dateFrom" name="fromDate" class="form-control" placeholder="From Date">
+        </div>
+        <div class="col-md-2">
+          <input type="date" [(ngModel)]="dateTo" name="toDate" class="form-control" placeholder="To Date">
+        </div>
+
+        <div class="col-md-2">
+          <button (click)="exportToPDF()" class="btn btn-success">Export to PDF</button>
+        </div>
+        <div class="col-md-2">
+          <button (click)="exportToExcel()" class="btn btn-info">Export to Excel</button>
+        </div>
+      </div>
+    </form>
+    </div>
+  </div>
+    <div class="row" *ngIf="filteredData && filteredData.length > 0; else noDataTemplate">
+      <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+        <mat-paginator [length]="filteredData.length" [pageSize]="pageSize" [pageSizeOptions]="[5,10, 25, 50,100,200,500,1000,10000]" (page)="onPageChange($event)"></mat-paginator>
+        <table   #tableData  class="table">
+  
+          <thead>
+            <tr>
+              <th scope="col">S.No</th>
+              <th scope="col">Name</th>
+              <th scope="col">Date</th>
+
+              <ng-container *ngFor="let column of tableColumns">
+                <th *ngIf="hasData(column)" scope="col">{{ column }}</th>
+                <th *ngIf="hasData(column)" scope="col">Time</th>
+              </ng-container>
+
+              <th scope="col">TotalTime</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of pagedData; let i = index">
+              <th scope="row">{{ i + 1 }}</th>
+              <td>{{ item.Name }}</td>
+              <td>{{ item.TodayDate }}</td>
+
+              <ng-container *ngFor="let column of tableColumns">
+                <td *ngIf="hasData(column)">{{ item[column] }}</td>
+                <td *ngIf="hasData(column)">{{ item['totaltime' + column.toLowerCase()] }}</td>
+              </ng-container>
+
+
+              <td>{{ item.totaytotaltime }}</td>
+
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+<ng-template #noDataTemplate>
+  <div class="row header" *ngIf="!(pagedData && pagedData.length || filteredData && filteredData.length)">
+    <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+      <section class="h-100 gradient-form" style="background-color:white;">
+        <div class="container py-5 h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-xl-7">
+              <div class="card rounded-3 text-black" style="background-color: rgb(255, 253, 252);">
+                <div class="row g-0">
+                  <div class="col-lg-12 d-flex align-items-center gradient-custom-2">
+                    <img class="img-fluid logoimg" src="https://cstimesheetimg.s3.ap-south-1.amazonaws.com/Nodatafound.png" alt="Logo Image">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</ng-template> -->
+
+
+
+<div class="container-fluid"  >
+  <div class="row header">
+    <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-2 col-xl-2 col-xxl-2 ">
+      <div class="samplebutton d-flex align-items-center justify-content-center">
+        <button class="btn  custom-width"  (click)="home()" >
+        <img class="img-fluid logoimg" src="https://cstimesheetimg.s3.ap-south-1.amazonaws.com/logo-removebg-preview.png" alt="Logo Image" >
+        </button>
+      </div>
+    </div>
+    <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-6 col-xxl-6 logo1">
+      <!-- <div class="logo7" (click)="toggleDropdown = !toggleDropdown" (blur)="toggleDropdown = false"> -->
+        <!-- <h6 class="h6 text-sm text-wrap" style="margin-top: 20px; margin-bottom: 0; margin-left: 0px; font-size: 25px; color:black;  font-family: Verdana, Geneva, Tahoma, sans-serif;">
+         
+          Hii {{ selectedUsername }}
+        </h6> -->
+        
+    
+        <!-- <div *ngIf="toggleDropdown" class="dropdown-menu" (click)="logout()">
+          <button>Logout</button>
+        </div> -->
+      <!-- </div> -->
+    </div>
+
+    <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-1 col-xl-1 col-xxl-1 logo3" >
+      <!-- <div class="samplebutton d-flex align-items-center justify-content-center">
+        <button class="btn  custom-width"  (click)="project()" >
+          <img class="img-fluid" src="https://cstimesheetimg.s3.ap-south-1.amazonaws.com/Project.png" alt="Button Image">
+        </button>
+      </div> 
+      <div>
+        <h6 class="h6 text-center text-wrap " style="margin-top: 0; margin-bottom: 0; margin-left: 20px;  font-size:15px; color:#080808; margin: auto 0px;">𝐏𝐫𝐨𝐣𝐞𝐜𝐭𝐬</h6>
+      </div> -->
+    </div>
+    <div class="col-12 col-xs-6 col-sm-6 col-md-6 col-lg-1 col-xl-1 col-xxl-1 logo4" >
+      <!-- <div class="samplebutton d-flex align-items-center justify-content-center">
+        <button class="btn  custom-width" (click)="report()" >
+          <img class="img-fluid" src="https://cstimesheetimg.s3.ap-south-1.amazonaws.com/Report.png" alt="Button Image">
+        </button>
+      </div> 
+      <div>
+        <h6 class="h6 text-center text-wrap " style="margin-top: 0; margin-bottom: 0; margin-left: 20px;  font-size:15px; color:#080808; margin: auto 0px;">𝐑𝐞𝐩𝐨𝐫𝐭𝐬</h6>
+      </div> -->
+
+            <div class="samplebutton d-flex align-items-center justify-content-center">
+        <button class="btn  custom-width"  (click)="project()" >
+          <img class="img-fluid" src="https://cstimesheetimg.s3.ap-south-1.amazonaws.com/Project.png" alt="Button Image">
+        </button>
+      </div> 
+      <div>
+        <h6 class="h6 text-center text-wrap " style="margin-top: 0; margin-bottom: 0; margin-left: 20px;  font-size:15px; color:#080808; margin: auto 0px;">𝐓𝐢𝐦𝐞𝐬𝐡𝐞𝐞𝐭</h6>
+      </div>
+    </div>
+    <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-2 col-xl-2 col-xxl-1 logo5">
+      <div class="logo7 d-flex align-items-center justify-content-center" (click)="toggleDropdown = !toggleDropdown" (blur)="toggleDropdown = false">
+
+        <!-- <img class="img-fluid " [src]="imageUrl" alt="Logo Image" > -->
+        <img class="img-fluid rounded-circle center-img" [src]="imageUrl" alt="Profile Image">
+    
+        <div *ngIf="toggleDropdown" class="dropdown-menu" (click)="logout()">
+          <button>Logout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="alldata && alldata.length > 0; else noDataTemplate">
+
+  <div class="row">
+  <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+    <form (ngSubmit)="filterData" class="mt-3">
+      <div class="row">
+        <div class="col-md-2">
+          <input type="text" [(ngModel)]="selectedUsername" name="username" class="form-control" [placeholder]="placeholderText"  [disabled]="isDisabled" >
+        </div>
+        <div class="col-md-2">
+          <input type="text" [(ngModel)]="selectedProject1" name="userproject" class="form-control" placeholder="Userproject1">
+        </div>
+        <div class="col-md-2">
+          <input type="date" [(ngModel)]="dateFrom" name="fromDate" class="form-control" placeholder="From Date">
+        </div>
+        <div class="col-md-2">
+          <input type="date" [(ngModel)]="dateTo" name="toDate" class="form-control" placeholder="To Date">
+        </div>
+        <!-- <div class="col-md-2">
+          <button type="submit" class="btn btn-primary">Apply Filter</button>
+        </div> -->
+        <div class="col-md-2">
+          <button (click)="exportToPDF()" class="btn btn-success">Export to PDF</button>
+        </div>
+        <div class="col-md-2">
+          <button (click)="exportToExcel()" class="btn btn-info">Export to Excel</button>
+        </div>
+      </div>
+    </form>
+    </div>
+  </div>
+    <!-- <div class="row">
+      <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+        <mat-paginator [length]="filteredData.length" [pageSize]="pageSize" [pageSizeOptions]="[5,10, 25, 50,100,200,500,1000,10000]" (page)="onPageChange($event)"></mat-paginator>
+        <table   #tableData  class="table">
+  
+          <thead>
+            <tr>
+              <th scope="col">S.No</th>
+              <th scope="col">Name</th>
+              <th scope="col">Date</th>
+              <th scope="col">Project1</th>
+              <th scope="col">Time</th>
+              <th scope="col">Activity</th>
+              <th scope="col">Project2</th>
+              <th scope="col">Time</th>
+              <th scope="col">Activity</th>
+              <th scope="col">Project3</th>
+              <th scope="col">Time</th>
+              <th scope="col">Activity</th>
+              <th scope="col">Project4</th>
+              <th scope="col">Time</th>
+              <th scope="col">Activity</th>
+              <th scope="col">Project5</th>
+              <th scope="col">Time</th>
+              <th scope="col">Activity</th>
+              <th scope="col">Learning & Learning</th>
+              <th scope="col">Time</th>
+              <th scope="col">Activity</th>
+             <th scope="col">TotalTime</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of pagedData; let i =index">
+              <th scope="row">{{ i + 1 }}</th>
+              <td>{{ item.Name }}</td>
+              <td>{{ item.TodayDate }}</td>
+              <td >{{ item.Project1 }}</td>
+              <td>{{ item.totaltimeproject1 }}</td>
+              <td>{{ item.activity1 }}</td>
+              <td>{{ item.Project2 }}</td>
+              <td>{{ item.totaltimeproject2 }}</td>
+              <td>{{ item.activity2 }}</td>
+              <td >{{ item.Project3 }}</td>
+              <td>{{ item.totaltimeproject3 }}</td>
+              <td>{{ item.activity3 }}</td>
+              <td>{{ item.Project4 }}</td>
+              <td>{{ item.totaltimeproject4 }}</td>
+              <td>{{ item.activity4 }}</td>
+              <td>{{ item.Project5 }}</td>
+              <td>{{ item.totaltimeproject5 }}</td>
+              <td>{{ item.activity5 }}</td>
+              <td>{{ item.TrainingLearing }}</td>
+              <td>{{ item.totalTrainingLearning }}</td>
+              <td>{{ item.activity6 }}</td>
+              <td>{{ item.totaytotaltime }}</td>
+              
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div> -->
+
+
+    <!-- <div class="row">
+      <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+        <mat-paginator [length]="filteredData.length" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50, 100, 200, 500, 1000, 10000]" (page)="onPageChange($event)"></mat-paginator>
+        <table #tableData class="table">
+    
+          <thead>
+
+            <tr >
+              <th scope="col">S.No</th>
+              <th scope="col">Name</th>
+              <th scope="col">Date</th>
+              <th *ngIf="checkColumnVisibility(pagedData[0],'Project1')" scope="col">Project1</th>
+              <th *ngIf="checkColumnVisibility(pagedData[0],'totaltimeproject1')" scope="col">Time</th>
+              <th *ngIf="checkColumnVisibility(pagedData[0],'activity1')" scope="col">Activity</th>
+              <th *ngIf="checkColumnVisibility(pagedData[0],'Project2')" scope="col">Project2</th>
+              <th *ngIf="checkColumnVisibility(pagedData[0],'totaltimeproject2')" scope="col">Time</th>
+              <th *ngIf="checkColumnVisibility(pagedData[0],'activity2')" scope="col">Activity</th>
+              <th *ngIf="checkColumnVisibility(pagedData[0],'Project3')" scope="col">Project3</th>
+              <th *ngIf="checkColumnVisibility(pagedData[0],'totaltimeproject3')" scope="col">Time</th>
+              <th *ngIf="checkColumnVisibility(pagedData[0],'activity3')" scope="col">Activity</th>
+              <th *ngIf="checkColumnVisibility(pagedData[0],'Project4')" scope="col">Project4</th>
+              <th *ngIf="checkColumnVisibility(pagedData[0],'totaltimeproject4')" scope="col">Time</th>
+              <th *ngIf="checkColumnVisibility(pagedData[0],'activity4')" scope="col">Activity</th>
+              <th *ngIf="checkColumnVisibility(pagedData[0],'totaltimeproject5')" scope="col">Project5</th>
+              <th *ngIf="checkColumnVisibility(pagedData[0],'Project5')" scope="col">Time</th>
+              <th *ngIf="checkColumnVisibility(pagedData[0],'activity5')" scope="col">Activity</th>
+              <th *ngIf="checkColumnVisibility(pagedData[0],'TrainingLearing')" scope="col">Learning & Learning</th>
+              <th *ngIf="checkColumnVisibility(pagedData[0],'totalTrainingLearning')" scope="col">Time</th>
+              <th *ngIf="checkColumnVisibility(pagedData[0],'activity6')" scope="col">Activity</th>
+              <th *ngIf="checkColumnVisibility(pagedData[0],'totaytotaltime')" scope="col">TotalTime</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of pagedData; let i = index">
+              <th scope="row">{{ i + 1 }}</th>
+              <td>{{ item.Name }}</td>
+              <td>{{ item.TodayDate }}</td>
+              <td *ngIf="checkColumnVisibility(item,'Project1')">{{ item.Project1 }}</td>
+              <td *ngIf="checkColumnVisibility(item,'totaltimeproject1')">{{ item.totaltimeproject1 }}</td>
+              <td *ngIf="checkColumnVisibility(item,'activity1')">{{ item.activity1 }}</td>
+              <td *ngIf="checkColumnVisibility(item,'Project2')">{{ item.Project2 }}</td>
+              <td *ngIf="checkColumnVisibility(item,'totaltimeproject2')">{{ item.totaltimeproject2 }}</td>
+              <td *ngIf="checkColumnVisibility(item,'activity2')">{{ item.activity2 }}</td>
+              <td *ngIf="checkColumnVisibility(item,'Project3')">{{ item.Project3 }}</td>
+              <td *ngIf="checkColumnVisibility(item,'totaltimeproject3')">{{ item.totaltimeproject3 }}</td>
+              <td *ngIf="checkColumnVisibility(item,'activity3')">{{ item.activity3 }}</td>
+              <td *ngIf="checkColumnVisibility(item,'Project4')">{{ item.Project4 }}</td>
+              <td *ngIf="checkColumnVisibility(item,'totaltimeproject4')">{{ item.totaltimeproject4 }}</td>
+              <td *ngIf="checkColumnVisibility(item,'activity4')">{{ item.activity4 }}</td>
+              <td *ngIf="checkColumnVisibility(item,'Project5')">{{ item.Project5 }}</td>
+              <td *ngIf="checkColumnVisibility(item,'totaltimeproject5')">{{ item.totaltimeproject5 }}</td>
+              <td *ngIf="checkColumnVisibility(item,'activity5')">{{ item.activity5 }}</td>
+              <td *ngIf="checkColumnVisibility(item,'TrainingLearing')">{{ item.TrainingLearing }}</td>
+              <td *ngIf="checkColumnVisibility(item,'totalTrainingLearning')">{{ item.totalTrainingLearning }}</td>
+              <td *ngIf="checkColumnVisibility(item,'activity6')">{{ item.activity6 }}</td>
+              <td *ngIf="checkColumnVisibility(item,'totaytotaltime')">{{ item.totaytotaltime }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div> -->
+    
+    <!-- <div class="row">
+      <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+        <mat-paginator [length]="filteredData.length" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50, 100, 200, 500, 1000, 10000]" (page)="onPageChange($event)"></mat-paginator>
+        <table #tableData class="table">
+          <thead>
+            <tr>
+              <th scope="col">S.No</th>
+              <th scope="col">Name</th>
+              <th scope="col">Date</th>
+              <th *ngFor="let header of displayHeaders" scope="col">{{ header }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of pagedData; let i = index">
+              <th scope="row">{{ i + 1 }}</th>
+              <td>{{ item.Name }}</td>
+              <td>{{ item.TodayDate }}</td>
+              <td *ngFor="let header of displayHeaders">
+                <ng-container *ngIf="checkColumnVisibility(item, header)">
+                  {{ item[header] }}
+                </ng-container>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div> -->
+    
+     <!-- <div class="row">
+      <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+        <mat-paginator [length]="filteredData.length" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50, 100, 200, 500, 1000, 10000]" (page)="onPageChange($event)"></mat-paginator>
+        <table #tableData class="table">
+          <thead>
+            <tr>
+              <th scope="col">S.No</th>
+              <th scope="col">Name</th>
+              <th scope="col">Date</th>
+              <ng-container *ngFor="let header of displayHeaders">
+                <th *ngIf="hasData(header)" scope="col">{{ header }}</th>
+              </ng-container>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of pagedData; let i = index">
+              <th scope="row">{{ i + 1 }}</th>
+              <td>{{ item.Name }}</td>
+              <td>{{ item.TodayDate }}</td>
+              <ng-container *ngFor="let header of displayHeaders">
+                <td *ngIf="hasData(header)">{{ item[header] }}</td>
+              </ng-container>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>  -->
+    
+    <div class="row">
+      <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+        <mat-paginator [length]="filteredData.length" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50, 100, 200, 500, 1000, 10000]" (page)="onPageChange($event)"></mat-paginator>
+        <table #tableData class="table table-responsive">
+          <thead>
+            <tr>
+              <th scope="col">S.No</th>
+              <th scope="col">Name</th>
+              <th scope="col">Date</th>
+              <ng-container *ngFor="let header of displayHeaders">
+                <th *ngIf="hasData(header)" scope="col">{{ formatHeader(header) }}</th>
+              </ng-container>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of pagedData; let i = index">
+              <th scope="row">{{ i + 1 }}</th>
+              <td>{{ item.Name }}</td>
+              <td>{{ item.TodayDate }}</td>
+              <ng-container *ngFor="let header of displayHeaders">
+                <!-- <td *ngIf="hasData(header)">{{ (item[header], header) }}</td> -->
+                <td *ngIf="hasData(header)">{{ item[header] }}</td>
+              </ng-container>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+    
+    
+    
+    
+  </div>
+
+
+</div>
+<ng-template #noDataTemplate>
+  <div *ngIf="!alldata || alldata.length === 0" class="row ">
+    <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 ">
+      <section class="h-100 gradient-form" style="background-color:white;">
+          <div class="container py-5 h-100" >
+            <div class="row d-flex justify-content-center align-items-center h-100">
+              <div class="col-xl-7">
+                <div class="card rounded-3 text-black" style="background-color: rgb(255, 253, 252);" >
+                  <div class="row g-0">
+
+                    <div class="col-lg-12 d-flex align-items-center gradient-custom-2">
+                           <img class="img-fluid logoimg1" src="https://cstimesheetimg.s3.ap-south-1.amazonaws.com/Nodatafound.png" alt="Logo Image" >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+    
+    </div>
+
+
+  </div>
+</ng-template>

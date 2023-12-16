@@ -1,0 +1,399 @@
+
+    <div class="col-12 col-md-12 col-lg-8 col-xl-12 col-xxl-12 content" >
+
+      <div class="row header">
+        <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-2 col-xl-2 col-xxl-2 ">
+          <div class="samplebutton d-flex align-items-center justify-content-center">
+          <button class="btn  custom-width"  (click)="home()" >
+            <img class="img-fluid logoimg" src="https://cstimesheetimg.s3.ap-south-1.amazonaws.com/logo-removebg-preview.png" alt="Logo Image" >
+            </button>
+          </div>
+        </div>
+        <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-6 col-xxl-6 logo1">
+         
+            <h6 class="h6 text-sm text-wrap" style="margin-top: 20px; margin-bottom: 0; margin-left: 0px; font-size: 25px; color:black;  font-family: Verdana, Geneva, Tahoma, sans-serif;">
+              
+            </h6>
+            
+        </div>
+  
+        <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-1 col-xl-1 col-xxl-1 logo3" >
+        </div>
+        <div class="col-12 col-xs-6 col-sm-6 col-md-6 col-lg-1 col-xl-1 col-xxl-1 logo4" >
+          <div class="samplebutton d-flex align-items-center justify-content-center">
+            <button class="btn  custom-width" (click)="report()" >
+              <img class="img-fluid" src="https://cstimesheetimg.s3.ap-south-1.amazonaws.com/Report.png" alt="Button Image">
+            </button>
+          </div> 
+          <div>
+            <h6 class="h6 text-center text-wrap " style="margin-top: 0; margin-bottom: 0; margin-left: 20px;  font-size:15px; color:#080808; margin: auto 0px;">𝐑𝐞𝐩𝐨𝐫𝐭𝐬</h6>
+          </div>
+        </div>
+        <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-2 col-xl-2 col-xxl-1 logo5">
+          <div class="logo7 d-flex align-items-center justify-content-center" (click)="toggleDropdown = !toggleDropdown" (blur)="toggleDropdown = false">
+  
+
+            <img class="img-fluid rounded-circle center-img" [src]="imageUrl" alt="Profile Image">
+        
+            <div *ngIf="toggleDropdown" class="dropdown-menu" (click)="logout()">
+              <button>Logout</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <!-- <p><b>TIMESHEET</b></p> -->
+        <div class="col">
+          <label for="contentInput">Name<span style="color:red">★</span></label>
+          <input
+            id="contentInput"
+            [(ngModel)]="Name"
+            [ngModelOptions]="{ standalone: true }"
+            required
+            placeholder="Enter the value"
+            class="form-control my-input"
+            [disabled]="isInputDisabled"
+          />
+        </div>
+
+        <div class="col tec">
+          <mat-form-field class="example-full-width">
+            <mat-label>Choose a date<span style="color:red">★</span></mat-label>
+            <input matInput [matDatepicker]="picker" [(ngModel)]="TodayDate" (dateChange)="onDateChanged($event)">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <button mat-raised-button (click)="openPicker()">Open</button>
+        </div>
+        <div class="col"></div>     
+      <div class="row">
+        <div class="col">
+          <label for="groupInput">Project - 1<span style="color:red">★</span></label>
+          <input
+            id="groupInput"
+            [(ngModel)]="Project1"
+            [ngModelOptions]="{ standalone: true }"
+            class="form-control my-input "
+            (input)="filterDepartment1($event)"
+            placeholder="Hydrotek"
+            (blur)="checkProject1()"
+          />
+          <ul class="dropdown" *ngIf="filteredProject1.length > 0">
+            <li *ngFor="let groupOption of filteredProject1" (click)="selectDepartment1(groupOption)">{{ groupOption }}</li>
+          </ul>
+
+        </div>
+        <div class="col tec">
+          <div class="custom-timepicker">
+            <ngx-timepicker-field [format]="12" [defaultTime]="'09:00'" [(ngModel)]="Projecttimefrom1"  (ngModelChange)="checkTimeEquality1()" [disabled]="!isProject1Entered"  ></ngx-timepicker-field>
+            <span class="placeholder" style="color:black">From<span style="color:red">★</span></span>
+          </div>
+        </div>
+        <div class="col tec">
+          <div class="custom-timepicker">
+            <ngx-timepicker-field [format]="12" [defaultTime]="'06:00'" [(ngModel)]="Projecttimeto1"  (ngModelChange)="checkTimeEquality1()"  [disabled]="!isProjectTimeFrom1Entered" ></ngx-timepicker-field>
+            <span class="placeholder" style="color:black">To<span style="color:red">★</span></span>
+          </div>
+        </div>
+        <div class="col">
+          <label for="groupInput">Activity</label>
+          <textarea
+            id="groupInput"
+            [(ngModel)]="activity1"
+            [ngModelOptions]="{ standalone: true }"
+            class="form-control my-input "
+            rows="2"
+            placeholder="Designing"
+            [disabled]="!isActivity1Enabled"
+   
+           
+            ></textarea>
+
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="groupInput">Project - 2</label>
+          <input
+            id="groupInput"
+            [(ngModel)]="Project2"
+            [ngModelOptions]="{ standalone: true }"
+            class="form-control my-input "
+            (input)="filterDepartment2($event)"
+            placeholder="Sanmar"
+            (blur)="checkProject2()"
+          />
+
+          <ul class="dropdown" *ngIf="filteredProject2.length > 0">
+            <li *ngFor="let groupOption of filteredProject2" (click)="selectDepartment2(groupOption)" >{{ groupOption }}</li>
+          </ul>
+
+        </div>
+        <div class="col tec">
+          <div class="custom-timepicker">
+            <ngx-timepicker-field [format]="12" [defaultTime]="'09:00'" [(ngModel)]="Projecttimefrom2" (ngModelChange)="checkTimeOverlap()" (ngModelChange)="checkTimeEquality2()" [disabled]="!isProject2Entered" ></ngx-timepicker-field>
+            <span class="placeholder" style="color:black">From</span>
+          </div>
+        </div>
+        <div class="col tec">
+          <div class="custom-timepicker">
+            <ngx-timepicker-field [format]="12" [defaultTime]="'06:00'" [(ngModel)]="Projecttimeto2" (ngModelChange)="checkTimeOverlap()" (ngModelChange)="checkTimeEquality2()" [disabled]="!isProjectTimeFrom2Entered"></ngx-timepicker-field>
+            <span class="placeholder" style="color:black">To</span>
+          </div>
+        </div>
+        <div class="col">
+          <label for="groupInput">Activity</label>
+          <textarea
+            id="groupInput"
+            [(ngModel)]="activity2"
+            [ngModelOptions]="{ standalone: true }"
+            class="form-control my-input "
+            placeholder="Development"
+            [disabled]="!isActivity2Enabled"
+            
+            ></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="groupInput">Project - 3</label>
+          <input
+            id="groupInput"
+            [(ngModel)]="Project3"
+            [ngModelOptions]="{ standalone: true }"
+            class="form-control my-input "
+            (input)="filterDepartment3($event)"
+            placeholder="Honeywell"
+            (blur)="checkProject3()"
+          />
+
+          <ul class="dropdown" *ngIf="filteredProject3.length > 0">
+            <li *ngFor="let groupOption of filteredProject3" (click)="selectDepartment3(groupOption)">{{ groupOption }}</li>
+          </ul>
+
+        </div>
+        <div class="col tec">
+          <div class="custom-timepicker">
+            <ngx-timepicker-field [format]="12" [defaultTime]="'09:00'" [(ngModel)]="Projecttimefrom3" (ngModelChange)="checkTimeOverlapForProject3()" (ngModelChange)="checkTimeEquality3()" [disabled]="!isProject3Entered"></ngx-timepicker-field>
+            <span class="placeholder" style="color:black">From</span>
+          </div>
+        </div>
+        <div class="col tec">
+          <div class="custom-timepicker">
+            <ngx-timepicker-field [format]="12" [defaultTime]="'06:00'" [(ngModel)]="Projecttimeto3"  (ngModelChange)="checkTimeOverlapForProject3()" (ngModelChange)="checkTimeEquality3()" [disabled]="!isProjectTimeFrom3Entered"></ngx-timepicker-field>
+            <span class="placeholder" style="color:black">To</span>
+          </div>
+        </div>
+        <div class="col">
+          <label for="groupInput">Activity</label>
+          <textarea
+            id="groupInput"
+            [(ngModel)]="activity3"
+            [ngModelOptions]="{ standalone: true }"
+            class="form-control my-input "
+            placeholder="Testing"
+            [disabled]="!isActivity3Enabled"
+            ></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="groupInput">Project - 4</label>
+          <input
+            id="groupInput"
+            [(ngModel)]="Project4"
+            [ngModelOptions]="{ standalone: true }"
+            class="form-control my-input "
+            (input)="filterDepartment4($event)"
+            placeholder="NFC"
+            (blur)="checkProject4()"
+          />
+
+          <ul class="dropdown" *ngIf="filteredProject4.length > 0">
+            <li *ngFor="let groupOption of filteredProject4" (click)="selectDepartment4(groupOption)">{{ groupOption }}</li>
+          </ul>
+
+        </div>
+        <div class="col tec">
+          <div class="custom-timepicker">
+            <ngx-timepicker-field [format]="12" [defaultTime]="'09:00'" [(ngModel)]="Projecttimefrom4"  (ngModelChange)="checkTimeOverlapForProject4()" (ngModelChange)="checkTimeEquality4()" [disabled]="!isProject4Entered"></ngx-timepicker-field>
+            <span class="placeholder" style="color:black">From</span>
+          </div>
+        </div>
+        <div class="col tec">
+          <div class="custom-timepicker">
+            <ngx-timepicker-field [format]="12" [defaultTime]="'06:00'" [(ngModel)]="Projecttimeto4" (ngModelChange)="checkTimeOverlapForProject4()" (ngModelChange)="checkTimeEquality4()" [disabled]="!isProjectTimeFrom4Entered"></ngx-timepicker-field>
+            <span class="placeholder" style="color:black">To</span>
+          </div>
+        </div>
+        <div class="col">
+          <label for="groupInput">Activity</label>
+          <textarea
+            id="groupInput"
+            [(ngModel)]="activity4"
+            [ngModelOptions]="{ standalone: true }"
+            class="form-control my-input "
+            placeholder="Designing"
+            [disabled]="!isActivity4Enabled"
+            ></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="groupInput">Project - 5</label>
+          <input
+            id="groupInput"
+            [(ngModel)]="Project5"
+            [ngModelOptions]="{ standalone: true }"
+            class="form-control my-input "
+            (input)="filterDepartment5($event)"
+            placeholder="NALCO"
+            (blur)="checkProject5()"
+          />
+
+          <ul class="dropdown" *ngIf="filteredProject5.length > 0">
+            <li *ngFor="let groupOption of filteredProject5" (click)="selectDepartment5(groupOption)">{{ groupOption }}</li>
+          </ul>
+
+        </div>
+        <div class="col tec">
+          <div class="custom-timepicker">
+            <ngx-timepicker-field [format]="12" [defaultTime]="'09:00'" [(ngModel)]="Projecttimefrom5" (ngModelChange)="checkTimeOverlapForProject5()" (ngModelChange)="checkTimeEquality5()" [disabled]="!isProject5Entered"></ngx-timepicker-field>
+            <span class="placeholder" style="color:black">From</span>
+          </div>
+        </div>
+        <div class="col tec">
+          <div class="custom-timepicker">
+            <ngx-timepicker-field [format]="12" [defaultTime]="'06:00'" [(ngModel)]="Projecttimeto5" (ngModelChange)="checkTimeOverlapForProject5()" (ngModelChange)="checkTimeEquality5()" [disabled]="!isProjectTimeFrom5Entered"></ngx-timepicker-field>
+            <span class="placeholder" style="color:black">To</span>
+          </div>
+        </div>
+        <div class="col">
+          <label for="groupInput">Activity</label>
+          <textarea
+            id="groupInput"
+            [(ngModel)]="activity5"
+            [ngModelOptions]="{ standalone: true }"
+            class="form-control my-input "
+            placeholder="Development"
+            [disabled]="!isActivity5Enabled"
+            ></textarea>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="modelInput">Training & Learning</label>
+          <input
+            id="modelInput"
+            [(ngModel)]="TrainingLearing"
+            [ngModelOptions]="{ standalone: true }"
+            class="form-control my-input"
+            placeholder="SCADA Training"
+            (blur)="checkProject6()"
+          />
+        </div>
+        <div class="col tec">
+          <div class="custom-timepicker">
+            <ngx-timepicker-field [format]="12" [defaultTime]="'09:00'" [(ngModel)]="TrainingLearningtimefrom" (ngModelChange)="checkTimeOverlapForProject6()" (ngModelChange)="checkTimeEquality6()" [disabled]="!isProject6Entered"></ngx-timepicker-field>
+            <span class="placeholder" style="color:black">From</span>
+          </div>
+        </div>
+        <div class="col tec">
+          <div class="custom-timepicker">
+            <ngx-timepicker-field [format]="12" [defaultTime]="'06:00'" [(ngModel)]="TrainingLearningtimeto" (ngModelChange)="checkTimeOverlapForProject6()" (ngModelChange)="checkTimeEquality6()" [disabled]="!isProjectTimeFrom6Entered"></ngx-timepicker-field>
+            <span class="placeholder" style="color:black">To</span>
+          </div>
+        </div>
+        <div class="col">
+          <label for="modelInput">Activity</label>
+          <textarea
+            id="modelInput"
+            [(ngModel)]="activity6"
+            [ngModelOptions]="{ standalone: true }"
+            class="form-control my-input"
+            placeholder="Installation"
+            [disabled]="!isActivity6Enabled"
+            ></textarea>
+        </div>
+    </div>
+
+
+      <div class="row tablerow">
+        <div class="col">
+          <button type="submit" class="btn btn-primary" *ngIf="!isEditMode" (click)="submit()">Submit</button>
+          <button type="submit" class="btn btn-primary" *ngIf="isEditMode" (click)="editform()">Update</button>
+          
+        </div>
+      </div>
+
+    <div class="row " *ngIf="alldata1 && alldata1.length > 0">
+      <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+  
+        <table #tableData class="table table-responsive">
+
+          <thead>
+            <tr >
+              <th scope="col">S.No</th>
+              <th scope="col">Name</th>
+              <th scope="col" >Date</th>
+              <th scope="col" *ngIf="hasData('Project1')">Project1</th>
+              <th scope="col" *ngIf="hasData('totaltimeproject1')">Time</th>
+              <th scope="col" *ngIf="hasData('activity1')">Activity</th>
+              <th scope="col" *ngIf="hasData('Project2')">Project2</th>
+              <th scope="col" *ngIf="hasData('totaltimeproject2')">Time</th>
+              <th scope="col" *ngIf="hasData('activity2')">Activity</th>
+              <th scope="col" *ngIf="hasData('Project3')">Project3</th>
+              <th scope="col" *ngIf="hasData('totaltimeproject3')">Time</th>
+              <th scope="col" *ngIf="hasData('activity3')">Activity</th>
+              <th scope="col" *ngIf="hasData('Project4')">Project4</th>
+              <th scope="col" *ngIf="hasData('totaltimeproject4')">Time</th>
+              <th scope="col" *ngIf="hasData('activity4')">Activity</th>
+              <th scope="col" *ngIf="hasData('Project5')">Project5</th>
+              <th scope="col" *ngIf="hasData('totaltimeproject5')">Time</th>
+              <th scope="col" *ngIf="hasData('activity5')">Activity</th>
+              <th scope="col" *ngIf="hasData('TrainingLearing')">Learning & Learning</th>
+              <th scope="col" *ngIf="hasData('totalTrainingLearning')">Time</th>
+              <th scope="col" *ngIf="hasData('activity6')">Activity</th>
+              <th scope="col" *ngIf="hasData('totaytotaltime')">TotalTime</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of alldata1.slice(0, 5);; let i = index" >
+              <th scope="row">{{ i + 1 }}</th>
+              <td>{{ item.Name }}</td>
+              <td>{{ item.TodayDate }}</td>
+              <td *ngIf="hasData('Project1')">{{ item.Project1 }}</td>
+              <td *ngIf="hasData('totaltimeproject1')">{{ item.totaltimeproject1 }}</td>
+              <td *ngIf="hasData('activity1')">{{ item.activity1 }}</td>
+              <td *ngIf="hasData('Project2')">{{ item.Project2 }}</td>
+              <td *ngIf="hasData('totaltimeproject2')">{{ item.totaltimeproject2 }}</td>
+              <td *ngIf="hasData('activity2')">{{ item.activity2 }}</td>
+              <td *ngIf="hasData('Project3')">{{ item.Project3 }}</td>
+              <td *ngIf="hasData('totaltimeproject3')">{{ item.totaltimeproject3 }}</td>
+              <td *ngIf="hasData('activity3')">{{ item.activity3 }}</td>
+              <td *ngIf="hasData('Project4')">{{ item.Project4 }}</td>
+              <td *ngIf="hasData('totaltimeproject4')">{{ item.totaltimeproject4 }}</td>
+              <td *ngIf="hasData('activity4')">{{ item.activity4 }}</td>
+              <td *ngIf="hasData('Project5')">{{ item.Project5 }}</td>
+              <td *ngIf="hasData('totaltimeproject5')">{{ item.totaltimeproject5 }}</td>
+              <td *ngIf="hasData('activity5')">{{ item.activity5 }}</td>
+              <td *ngIf="hasData('TrainingLearing')">{{ item.TrainingLearing }}</td>
+              <td *ngIf="hasData('totalTrainingLearning')">{{ item.totalTrainingLearning }}</td>
+              <td *ngIf="hasData('activity6')">{{ item.activity6 }}</td>
+              <td *ngIf="hasData('totaytotaltime')">{{ item.totaytotaltime }}</td>
+              <td>
+                <button type="button" class="btn btn-success" (click)="editRow(item)">Edit</button>
+             </td>
+             <td>
+             <button type="button" class="btn btn-danger" (click)="deleteRow(item)">Delete</button>
+            </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
