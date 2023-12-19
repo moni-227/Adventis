@@ -7,9 +7,11 @@ const cors = require('cors');
 const userRoute = require('./route/Registration');
 const projectRoute = require('./route/projects');
 const UserprojectRoute = require('./route/Userprojects');
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+// app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use(parser.json());
-app.use(express.json());
+app.use(express.static('public'));
+// app.use(express.json());
 app.use(cors());
 
 
